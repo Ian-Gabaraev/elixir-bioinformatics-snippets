@@ -14,7 +14,7 @@ defmodule HairpinSequence do
     sequence_length = String.length(nucleotide_sequence)
     is_even_length = Integer.is_even(sequence_length)
 
-    if not are_complements(
+    if not _are_complements(
       String.first(nucleotide_sequence),
       String.last(nucleotide_sequence)
       ) do
@@ -22,7 +22,7 @@ defmodule HairpinSequence do
     end
 
     if is_even_length do
-      if are_complements(
+      if _are_complements(
         String.at(nucleotide_sequence, div(sequence_length, 2)-1),
         String.at(nucleotide_sequence, div(sequence_length, 2))
       ) do
@@ -33,7 +33,7 @@ defmodule HairpinSequence do
     indexes = Enum.to_list(0..div(sequence_length, 2)-1)
 
     checks = Enum.map(
-      indexes, fn x -> are_complements(
+      indexes, fn x -> _are_complements(
         String.at(nucleotide_sequence, x),
         String.at(nucleotide_sequence, (sequence_length-x)-1)
         ) end
@@ -49,7 +49,7 @@ defmodule HairpinSequence do
 
   end
 
-  defp are_complements(base_one, base_two) do
+  defp _are_complements(base_one, base_two) do
     @complements[base_one] == base_two
   end
 end
