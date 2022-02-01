@@ -1,5 +1,10 @@
 defmodule NucleotideSequence do
 
+  # Generate a random AGTC-sequence
+  def get_sample_sequence(seq_length) do
+    for _ <- 1..seq_length, into: "", do: <<Enum.random('AGTC')>>
+  end
+
   # Get a GC content for a nucleotide sequence
   def gc_content(sequence) do
     sequence = String.upcase(sequence)
@@ -17,8 +22,3 @@ defmodule NucleotideSequence do
   end
 
 end
-
-# Test
-sequence = "AGATGTCAGCGACATCG"
-gcc = NucleotideSequence.gc_content(sequence)
-IO.puts("GC Content of #{sequence} is #{gcc}")
