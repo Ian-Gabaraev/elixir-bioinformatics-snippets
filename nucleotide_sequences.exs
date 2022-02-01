@@ -1,4 +1,4 @@
-defmodule GBlocks do
+defmodule NucleotideSequence do
 
   # Get a GC content for a nucleotide sequence
   def gc_content(sequence) do
@@ -20,5 +20,5 @@ end
 
 # Test
 sequence = "AGATGTCAGCGACATCG"
-gcc = GBlocks.gc_content(sequence)
+gcc = NucleotideSequence.gc_content(sequence)
 IO.puts("GC Content of #{sequence} is #{gcc}")
