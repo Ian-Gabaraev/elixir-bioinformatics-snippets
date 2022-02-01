@@ -1,5 +1,6 @@
 defmodule GBlocks do
 
+  # Get a GC content for a nucleotide sequence
   def gc_content(sequence) do
     sequence = String.upcase(sequence)
     sequence_length = String.length(sequence)
