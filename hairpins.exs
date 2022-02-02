@@ -75,10 +75,9 @@ defmodule HairpinSequence do
     end
   end
 
+
   defp _are_complements(base_one, base_two) do
     @complements[base_one] == base_two
   end
 
 end
-
-IO.puts(HairpinSequence.get_hairpin_length("AGTATTATCT"))
