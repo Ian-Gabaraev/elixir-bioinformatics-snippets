@@ -15,6 +15,7 @@ defmodule HairpinSequence do
   @doc """
   Determines the length of an input hairpin sequence
   """
+  @spec get_hairpin_length!(String.t()) :: number()
   def get_hairpin_length!(nucleotide_sequence) do
     sequence_length = String.length(nucleotide_sequence)
 
@@ -30,6 +31,7 @@ defmodule HairpinSequence do
     end
   end
 
+  @spec _hp_len(String.t(), number()) :: number()
   defp _hp_len(nucleotide_sequence, sequence_length) do
     indexes = Enum.to_list(0..(div(sequence_length, 2) - 1))
 
@@ -61,6 +63,7 @@ defmodule HairpinSequence do
     end
   end
 
+  @spec _first_last_bases_non_complementary?(String.t()) :: boolean()
   defp _first_last_bases_non_complementary?(nucleotide_sequence) do
     first_base = String.first(nucleotide_sequence)
     last_base = String.last(nucleotide_sequence)
@@ -74,6 +77,7 @@ defmodule HairpinSequence do
     end
   end
 
+  @spec _is_even_length_non_hp?(String.t(), number()) :: boolean()
   defp _is_even_length_non_hp?(nucleotide_sequence, sequence_length) do
     is_even_length = Integer.is_even(sequence_length)
     leftmost_middle_base = String.at(nucleotide_sequence, div(sequence_length, 2) - 1)
@@ -88,6 +92,7 @@ defmodule HairpinSequence do
     end
   end
 
+  @spec _are_complements?(String.t(), String.t()) :: boolean()
   defp _are_complements?(base_one, base_two) do
     @complements[base_one] == base_two
   end
