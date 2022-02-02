@@ -1,6 +1,10 @@
 require Integer
 
 defmodule HairpinSequence do
+  @moduledoc """
+  A collection of functions for working with
+  hairpin nucleotide sequences
+  """
   @complements %{
     "G" => "C",
     "C" => "G",
@@ -8,7 +12,9 @@ defmodule HairpinSequence do
     "T" => "A"
   }
 
-  # Determines the length of an input hairpin sequence
+  @doc """
+  Determines the length of an input hairpin sequence
+  """
   def get_hairpin_length!(nucleotide_sequence) do
     sequence_length = String.length(nucleotide_sequence)
 
